@@ -1,5 +1,4 @@
 const assert = require("assert");
-const { ENGINE_METHOD_DSA } = require("constants");
 const ganache = require("ganache-cli");
 const Web3 = require("web3");
 const web3 = new Web3(ganache.provider());
@@ -11,8 +10,6 @@ let inbox;
 beforeEach(async () => {
   // Get a list of all accounts
   accounts = await web3.eth.getAccounts();
-
-  console.log(accounts);
 
   //Use one of those accounts to deploy the contract
   inbox = await new web3.eth.Contract(JSON.parse(interface))
